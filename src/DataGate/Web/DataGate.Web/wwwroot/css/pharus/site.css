@@ -1,0 +1,331 @@
+﻿
+/* Chosen style to be imported on change*/
+
+.modal-dialog-document {
+    margin:0;
+    transform: translateY(100%) translateX(100%) !important;
+}
+
+.modal-dialog-agreement {
+    margin: 0;
+    transform: translateY(40%) translateX(100%) !important;
+}
+
+.branch-background {
+    background: url(../../images/bg-branch.jpg) no-repeat center center fixed;
+    /*    background-size: cover;*/
+    overflow: hidden;
+    height: 815px;
+}
+
+.branch-background h2{
+    color: white;
+}
+
+.swal-footer, .swal-text {
+    text-align: center;
+}
+
+.ui-tooltip {
+    font-size: 12px;
+}
+
+.ui-widget-shadow {
+    box-shadow: none;
+}
+
+.chosen-container {
+    font-size: 15px;
+    margin-bottom: 2px;
+}
+
+.select2-container--classic .select2-results__option--highlighted[aria-selected] {
+    background-color: lightgrey;
+    color: inherit;
+}
+
+.input-file-custom:after {
+    content: " Select a file / max. 45MB";
+    background-color: white;
+}
+
+:root {
+    font-size: 13px;
+}
+
+input[type=date] {
+    font-size: 16px;
+    line-height: normal;
+    margin-top: 2px;
+}
+
+    ::-webkit-calendar-picker-indicator, ::-webkit-search-cancel-button, ::-webkit-inner-spin-button, ::-webkit-color-datetime-edit, input[type=date] ::-webkit-color-datetime-edit-day-field, ::-webkit-color-datetime-edit-fields-wrapper, input[type=date] ::-webkit-color-datetime-edit-month-field {
+        cursor: pointer;
+    }
+
+input[type=text], input[type=email], input[type=password] {
+    font-size: 16px;
+}
+
+.toolbar-view-all input[type=date] {
+    font-size: 16px;
+    line-height: normal;
+    margin-top: 2px
+}
+
+.toolbar-view-details input[type=date], .toolbar-view-details input[type=month] {
+    font-size: 16px;
+    line-height: normal;
+    margin-top: 0px
+}
+
+html {
+    position: relative;
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 16px;
+    height: auto;
+    line-height: 1.6;
+    vertical-align: baseline;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    color: #646464;
+    background-color: #fff;
+}
+
+h1, h2, h3, h4 {
+    color: black;
+}
+
+
+h2 {
+    font-size: 25px;
+    line-height: 1.9;
+}
+
+h4 {
+    font-size: 24px;
+}
+
+h1, h3 {
+    text-align: center;
+}
+
+ul {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: none;
+}
+
+    input:focus,
+    select:focus,
+    textarea:focus,
+    button:focus {
+        outline: none;
+    }
+
+.bg-pharus {
+    background-color: #202020;
+}
+
+.text-pharus {
+    color: #202020;
+}
+
+.border-pharus {
+    border: 2px solid #d9d9d9;
+    border-radius: 7px;
+}
+
+.nav-link-white {
+    color: #FFFFFF;
+}
+
+.text-right {
+    margin-left: auto;
+}
+
+.hr-2 {
+    height: 2px;
+}
+
+.w-5 {
+    width: 5%;
+}
+
+.w-15 {
+    width: 15%;
+}
+
+.w-35 {
+    width: 35%;
+}
+
+.w-45 {
+    width: 45%;
+}
+
+.w-60 {
+    width: 60%;
+}
+
+.w-65 {
+    width: 65%;
+}
+
+.h-70 {
+    height: 70%;
+}
+
+.maxw-270 {
+    max-width: 270px;
+}
+
+.maxw-160 {
+    max-width: 160px;
+}
+
+.minw-160 {
+    min-width: 160px;
+}
+
+.minh-100 {
+    min-height: 100px;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+@font-face {
+    font-family: Gilroy-Bold;
+    font-style: normal;
+    src: local("Gilroy-Bold"), url("../../fonts/Gilroy-Bold.ttf") format("truetype"); /* non-IE */
+}
+
+.text-color-grey-pharus {
+    color: #898989;
+}
+
+.mb-2p {
+    margin-bottom: 2%;
+}
+
+#errorMessage, #infoMessage {
+    font-size: 14px;
+}
+
+#div-inputs-to-format input[type=date] {
+    border-width: 0 0 2px;
+    border-color: rgb(0, 65, 118);
+    max-width: 330px;
+}
+
+    #div-inputs-to-format input[type=date]:focus {
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(0, 65, 118);
+    }
+
+#div-inputs-to-format input[type=text] {
+    border-width: 0 0 2px;
+    border-color: rgb(0, 65, 118);
+    max-width: 330px;
+}
+
+#div-inputs-to-format textarea {
+    border-width: 0 0 2px;
+    border-color: rgb(0, 65, 118);
+    max-width: 330px;
+}
+
+.button-holder .btn-pharus {
+    font-size: 14px;
+}
+
+#div-inputs-to-format input[type=text]:focus, #div-inputs-to-format textarea:focus, #div-inputs-to-format input[type=date]:focus {
+    box-shadow: none;
+    border-color: #80bdff;
+    outline: none;
+}
+
+.column-form {
+    float: left;
+    width: 33.33%;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+    .column-form .form-group {
+        width: 75%;
+    }
+
+.icon-svg-warning {
+    background: url(/images/exclamation-triangle-solid.svg) no-repeat center center;
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+    margin-top: 6px;
+}
+
+.form-group-user {
+    margin-bottom: 30px;
+}
+
+    .form-group-user input {
+        display: initial;
+        border-color: rgb(0, 65, 118);
+        font-size: 18px;
+        max-width: 290px;
+        color: black;
+        font-weight: 400;
+        font-style: italic;
+    }
+
+        .form-group-user input:focus {
+            box-shadow: none;
+            border-color: #80bdff;
+            outline: none;
+        }
+
+.text-danger {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#blockui-panel {
+    display: none;
+}
+
+    #blockui-panel img {
+        width: 80px;
+    }
+/*
+*
+* ==========================================
+* SCROLLBAR
+* ==========================================
+*
+*/
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: -webkit-gradient(linear,left top,left bottom,from(rgba(34, 59, 120, 1)),to(#909090));
+    box-shadow: inset 2px 2px 2px rgba(255,255,255,.25), inset -2px -2px 2px rgba(0,0,0,.25);
+}

@@ -1,0 +1,222 @@
+﻿@inject JavaScriptSnippet JavaScriptSnippet
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@this.ViewData["Title"] | @GlobalConstants.SystemName</title>
+    <meta name="description" content="@this.ViewData["Title"]" />
+    <meta name="keywords" content="" />
+
+    <environment include="Development">
+        <link rel="icon" href="~/images/Logo_Pharus_small.jpg" type="image/x-icon">
+        <link type="text/css" rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" asp-append-version="true" />
+        <link type="text/css" rel="stylesheet" href="~/lib/jqueryui/themes/smoothness/jquery-ui.css" asp-append-version="true" />
+        <link type="text/css" rel="stylesheet" href="~/lib/datatables/css/jquery.dataTables.css" asp-append-version="true" />
+        <link type="text/css" rel="stylesheet" href="~/lib/chosen/chosen.css" asp-append-version="true">
+        <link type="text/css" rel="stylesheet" href="~/lib/slick/slick.min.css" asp-append-version="true" />
+        <link type="text/css" rel="stylesheet" href="~/lib/slick/slick-theme.min.css" asp-append-version="true" />
+
+        <link type="text/css" rel="stylesheet" href="~/css/pharus/buttons.css" asp-append-version="true" />
+        <link type="text/css" rel="stylesheet" href="~/css/pharus/card.css" asp-append-version="true" />
+        <link type="text/css" rel="stylesheet" href="~/css/pharus/checkbox.css" asp-append-version="true" />
+        <link type="text/css" rel="stylesheet" href="~/css/pharus/title.css" asp-append-version="true" />
+        <link type="text/css" rel="stylesheet" href="~/css/pharus/multiselect.css" asp-append-version="true" />
+        <link type="text/css" rel="stylesheet" href="~/css/pharus/navbar.css" asp-append-version="true" />
+        <link type="text/css" rel="stylesheet" href="~/css/pharus/search.css" asp-append-version="true" />
+        <link type="text/css" rel="stylesheet" href="~/css/pharus/selectMenu.css" asp-append-version="true" />
+        <link type="text/css" rel="stylesheet" href="~/css/pharus/table.css" asp-append-version="true" />
+        <link type="text/css" rel="stylesheet" href="~/css/pharus/timeline.css" asp-append-version="true" />
+        <link type="text/css" rel="stylesheet" href="~/css/pharus/site.css" asp-append-version="true" />
+        <link type="text/css" rel="stylesheet" href="~/css/pharus/dataTable.css" asp-append-version="true" />
+        <link type="text/css" rel="stylesheet" href="~/css/carousel.css" asp-append-version="true" />
+        <link type="text/css" rel="stylesheet" href="~/css/mediaQuery.css" asp-append-version="true" />
+
+        <script src="~/lib/sweetalert/dist/sweetalert.min.js" asp-append-version="true"></script>
+    </environment>
+
+    <environment include="Production, Staging">
+        <link rel="icon" href="~/images/Logo_Pharus_small.jpg" type="image/x-icon">
+        <link type="text/css" rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
+        <link type="text/css" rel="stylesheet" href="~/lib/jqueryui/themes/smoothness/jquery-ui.min.css" asp-append-version="true" />
+        <link type="text/css" rel="stylesheet" href="~/lib/datatables/css/jquery.dataTables.min.css" asp-append-version="true" />
+        <link type="text/css" rel="stylesheet" href="~/lib/chosen/chosen.min.css" asp-append-version="true">
+
+        <link type="text/css" rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+
+        <script src="~/lib/sweetalert/dist/sweetalert.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("Styles", required: false)
+    @*@Html.Raw(JavaScriptSnippet.FullScript)*@
+</head>
+<body>
+    @if (this.User.Identity.IsAuthenticated)
+    {
+        <header>
+            <div class="header-pharus">
+                <div class="w-50">
+                    <div class="header-pharus-app-navbar d-flex">
+                        <div class="mx-2 mt-2">
+                            <a asp-area="" asp-route="userpanel">
+                                <img src="~/images/Logo_Pharus_small.jpg" class="img-home-redirect" alt="Pharus Management">
+                            </a>
+                        </div>
+
+                        <div class="d-flex align-items-center mt-2">
+                            <div class="ml-2 mobile-none">
+                                <a asp-area="Fund" asp-route="allFunds">@SharedLocalizer.GetHtmlString("Fund Library")</a>
+                            </div>
+                            <div class="ml-2 mobile-none">
+                                <a asp-area="SubFund" asp-route="allSubFunds">@SharedLocalizer.GetHtmlString("Sub Fund Library")</a>
+                            </div>
+                            <div class="ml-2 mobile-none">
+                                <a asp-area="ShareClass" asp-route="allShareClasses">@SharedLocalizer.GetHtmlString("Share Class Library")</a>
+                            </div>
+                            <div class="ml-2 mobile-none">
+                                <a asp-area="" asp-route="allagreements">@SharedLocalizer.GetHtmlString("Agreements Library")</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-50 d-flex responsive-navbar">
+                    <div class="search-form-wrapper-responsive">
+                        <button class="open-search-box mt-3">
+                            <svg class="icon-svg-search-responsive" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
+                                <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+                            </svg>
+                        </button>
+
+                        <div class="search-form-wrapper mr-5 d-none">
+                            <form class="w-100" method="get" asp-area="" asp-route="search-results">
+                                <div class="search-box-responsive">
+                                    <input type="search"
+                                           name="searchTerm"
+                                           placeholder="@SharedLocalizer.GetHtmlString("Find a Share Class...")"
+                                           autocomplete="off"
+                                           autocorrect="off"
+                                           autocapitalize="off"
+                                           required />
+
+                                    <button type="submit" class="search" title="Search">
+                                        <svg class="icon-svg-search" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
+                                            <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="search-box-wrapper mr-5">
+                        <form method="get" asp-area="" asp-route="search-results">
+                            <div class="search-box">
+                                <input type="search"
+                                       name="searchTerm"
+                                       placeholder="@SharedLocalizer.GetHtmlString("Find a Share Class...")"
+                                       autocomplete="off"
+                                       autocorrect="off"
+                                       autocapitalize="off"
+                                       required />
+
+                                <button type="submit" class="search" title="Search">
+                                    <svg class="icon-svg-search" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
+                                        <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="responsive-menu ml-5">
+                        <a class="ml-3 open-responsive-menu">
+                        </a>
+                        <div class="responsive-menu-user">
+                            <div class="menu-user-container">
+                                <ul>
+                                    <li>
+                                        <a asp-area=""
+                                           asp-route="reportoverview">@SharedLocalizer.GetHtmlString("Reports")</a>
+                                    </li>
+                                    <li>
+                                        <a asp-area=""
+                                           asp-controller=""
+                                           asp-action="">@SharedLocalizer.GetHtmlString("Projects")</a>
+                                    </li>
+                                    <li>
+                                        <a asp-area=""
+                                           asp-route="userpanel">
+                                            @SharedLocalizer.GetHtmlString("Panel")
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a asp-area="Identity" asp-page="/Account/Manage/Email">@this.User.Identity.Name</a>
+                                    </li>
+
+                                    <li class="wrapper-language-bar">
+                                        <partial name="_SelectLanguagePartial" />
+                                    </li>
+
+                                    <li>
+                                        <a asp-area="Identity" asp-page="/Account/Logout">@SharedLocalizer.GetHtmlString("Logout")</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="container-fluid push-mobile">
+                <partial name="_NotificationPanelMain" />
+
+                @RenderBody()
+            </div>
+        </main>
+
+        <a class="back-to-top" href="javascript:backToTop()">
+            <svg aria-hidden="true" class="icon-svg arrow-up" xmlns="http://www.w3.org/2000/svg">
+            </svg>
+        </a>
+
+        <partial name="_BlockUIPanel" />
+    }
+
+<environment include="Development">
+    <script src="~/lib/jquery/dist/jquery.js" asp-append-version="true"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js" asp-append-version="true"></script>
+    <script src="~/lib/chosen/chosen.jquery.js" asp-append-version="true"></script>
+    <script src="~/lib/datatables/js/jquery.dataTables.js" asp-append-version="true"></script>
+    <script src="~/lib/moment/min/moment.min.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/navBar.js" asp-append-version="true"></script>
+</environment>
+
+    <environment include="Production, Staging">
+        <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.min.js" asp-append-version="true"></script>
+        <script src="~/lib/datatables/js/jquery.dataTables.min.js" asp-append-version="true"></script>
+        <script src="~/lib/moment/min/moment.min.js" asp-append-version="true"></script>
+        <script src="~/lib/chosen/chosen.jquery.min.js" asp-append-version="true"></script>
+
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    <script>
+        $(function () {
+            // Localization for search box
+            $('input[type=search]').attr('oninvalid', "this.setCustomValidity('@Html.Raw(SharedLocalizer.GetHtmlString("fillSearchBox").Value.ToString())')");
+            $('input[type=search]').attr('oninput', "setCustomValidity('')");
+        });
+    </script>
+
+    @this.RenderSection("Scripts", required: false)
+</body>
+</html>

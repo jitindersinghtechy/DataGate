@@ -1,0 +1,137 @@
+﻿/*
+*
+* ==========================================
+* MEDIA QUERY
+* ==========================================
+*
+*/
+
+@media only screen and (max-width: 991px) {
+
+    .branch-background {
+        overflow: scroll;
+    }
+
+    .toolbar-view-all, .toolbar-view-details {
+        overflow-x: scroll;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .logo-pharus img {
+        height: 120px;
+        width: 120px;
+    }
+
+    .column-form {
+        width: 100%;
+    }
+
+    .mobile-none,
+    .search-box-wrapper,
+    .div-carousel-center,
+    .slick-slider,
+    .dataTables_wrapper .top,
+    .dataTables_wrapper .bottom,
+    #aumChart,
+    footer {
+        display: none;
+    }
+
+    #div-select-addInfo {
+        width: 50%;
+    }
+
+    #infoAndDocumentsView {
+        display: inline;
+    }
+}
+
+@media only screen and (max-width: 1055px) {
+    .mobile-none {
+        display: none;
+    }
+
+    .push-mobile {
+        margin-top: 70px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .div-entity-container-wrapper {
+        display: none;
+    }
+}
+
+
+@media only screen and (min-width: 990px) {
+    .toolbar-view-all {
+        margin-top: 72px;
+    }
+
+    .toolbar-view-details {
+        margin-top: 72px;
+        display: flex;
+    }
+
+    .container-all-funds {
+        display: flex;
+    }
+
+    .search-form-wrapper-responsive {
+        display: none;
+    }
+
+    .push {
+        margin-top: 75px;
+    }
+
+    #infoAndDocumentsView,
+    #allselect-div-pharus {
+        display: flex;
+    }
+
+    #table-info-pharus {
+        width: 33.6%;
+    }
+
+    #div-select-addInfo {
+        width: 25%;
+    }
+
+    #aumChart {
+        width: 70%
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        border: 0;
+        margin: 0px auto;
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 990px) and (max-width: 1250px) {
+    .title-main {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1540px) {
+    .title-main {
+        width: 20%;
+    }
+
+    .header-pharus a {
+        font-size: 9px;
+    }
+}
+
+@media only screen and (min-width: 1054px) {
+    .title-responsive {
+        display: none;
+    }
+}

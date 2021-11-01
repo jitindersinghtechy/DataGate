@@ -1,0 +1,79 @@
+﻿@model EntitiesViewModel
+
+@{
+    var controller = this.ViewContext
+        .RouteData
+        .Values[GlobalConstants.ControllerRouteDataValue]
+        .ToString();
+    var routeDetails = StringSwapper.ByController(controller,
+                                                  GlobalConstants.FundDetailsRouteName,
+                                                  GlobalConstants.SubFundDetailsRouteName,
+                                                  GlobalConstants.ShareClassDetailsRouteName);
+
+    var entityAbr = StringSwapper.ByController(controller,
+                                            GlobalConstants.FundAbbreviation,
+                                            GlobalConstants.SubFundAbbreviation,
+                                            GlobalConstants.ShareClassAbbreviation);
+
+    var entityId = string.Empty;
+}
+
+<div class="table-responsive border-0 mx-auto">
+    <table class="table table-hover table-view-pharus" id="table-to-extract" hidden>
+        <thead>
+            <tr>
+                @for (int header = 0; header < Model.Headers.Count; header++)
+                {
+                    if (Model.Headers[header] == "NAME")
+                    {
+                        <th class="th-name" data-toggle="tooltip"
+                            data-placement="top"
+                            title="@Model.Headers[header]">
+                            @Model.Headers[header]
+                        </th>
+                    }
+                    else
+                    {
+                        <th data-toggle="tooltip"
+                            data-placement="top"
+                            title="@Model.Headers[header]">
+                            @Model.Headers[header]
+                        </th>
+                    }
+                }
+            </tr>
+        </thead>
+        <tbody id="tbody-update-inactive">
+            @foreach (var row in Model.Values)
+            {
+                entityId = row[GlobalConstants.IndexEntityIdInTable];
+
+                <tr>
+                    @for (int col = 0; col < row.Length; col++)
+                    {
+                        if (Model.Headers.ToList()[col] == "NAME")
+                        {
+                            <td class="td-name-link">
+                                <a asp-route="@routeDetails" asp-route-id="@entityId" asp-route-date="@Model.Date">
+                                    @row[col]
+                                </a>
+                            </td>
+                        }
+                        else if (Model.Headers.ToList()[col] == "ID")
+                        {
+                            <td class="">
+                                @row[col]_@entityAbr
+                            </td>
+                        }
+                        else
+                        {
+                            <td class="">
+                                @row[col]
+                            </td>
+                        }
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

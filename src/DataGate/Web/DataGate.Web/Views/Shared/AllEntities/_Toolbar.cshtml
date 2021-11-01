@@ -1,0 +1,93 @@
+﻿@model EntitiesViewModel
+
+@{
+    var controller = this.ViewContext
+        .RouteData
+        .Values[GlobalConstants.ControllerRouteDataValue]
+        .ToString();
+    var routeCreate = StringSwapper.ByController(controller,
+                                                 GlobalConstants.FundCreateRouteName,
+                                                 GlobalConstants.SubFundCreateRouteName,
+                                                 GlobalConstants.ShareClassCreateRouteName);
+}
+
+<form class="d-flex"
+      method="post"
+      asp-action="All"
+      id="update-form">
+
+    <div>
+        <button type="button"
+                class="btn btn-sm btn-pharus"
+                data-toggle="modal"
+                data-target="#columnModal"
+                name="showColumnSelection">
+            @SharedLocalizer.GetHtmlString("Columns")
+        </button>
+    </div>
+
+    <div class="el-switch-div ml-4">
+        <label class="el-switch el-switch-sm mt-1">
+            <input type="checkbox"
+                   asp-for="IsActive"
+                   id="activeCheckBox">
+            <span class="el-switch-style"></span>
+            <span class="d-block text-el-switch">@SharedLocalizer.GetHtmlString("Active")</span>
+
+        </label>
+    </div>
+    <div class="ml-4">
+        <a class="btn btn-pharus btn-sm" asp-action="All">
+            @SharedLocalizer.GetHtmlString("Reset")
+        </a>
+    </div>
+
+    <div class="vertical mx-3"></div>
+
+    <div>
+        <input type="date"
+               asp-for="Date"
+               min="2018-01-01"
+               required>
+        <input type="submit"
+               class="btn btn-pharus btn-sm mb-1"
+               name="Command"
+               value="@SharedLocalizer.GetHtmlString("Update")"></>
+        <span asp-validation-for="Date" class="text-danger"></span>
+    </div>
+
+    <partial name="AllEntities/_ModalSelect" />
+</form>
+
+<div class="vertical mx-3"></div>
+
+<div>
+    <form method="post" id="extract-form"></form>
+
+    <button class="btn btn-sm btn-pharus"
+            id="btn-extract-excel"
+            type="button"
+            value="Excel">
+        EXCEL
+    </button>
+
+    <button class="btn btn-sm btn-pharus ml-4"
+            id="btn-extract-pdf"
+            type="button"
+            value="PDF">
+        PDF
+    </button>
+</div>
+
+<div class="vertical mx-3"></div>
+
+@if (this.User.IsInRole(GlobalConstants.AdministratorRoleName) || this.User.IsInRole(GlobalConstants.LegalRoleName))
+{
+    <div>
+        <a asp-area="Admin"
+           asp-route="@routeCreate"
+           class="btn btn-sm btn-pharus">
+            @SharedLocalizer.GetHtmlString("Create")
+        </a>
+    </div>
+}

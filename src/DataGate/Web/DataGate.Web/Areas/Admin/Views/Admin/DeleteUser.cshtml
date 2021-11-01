@@ -1,0 +1,48 @@
+﻿@model DeleteUserInputModel
+
+@{
+    ViewData["Title"] = SharedLocalizer.GetHtmlString("Delete User");
+}
+<div class="push">
+    <div class="d-flex justify-content-center text-center">
+        <form asp-area="Admin"
+              asp-controller="Admin"
+              method="post"
+              class="d-inline w-75">
+            <h2 class="mb-2">@SharedLocalizer.GetHtmlString("Delete User")</h2>
+            <div>
+                <a class="btn btn-pharus text-white mt-2"
+                   asp-area=""
+                   asp-controller="User"
+                   asp-action="Index">
+                    @SharedLocalizer.GetHtmlString("Back to Panel")
+                </a>
+            </div>
+            <hr />
+            <div class="form-group-user">
+                <input asp-for="Username" disabled class="form-control" autocomplete="off" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group-user">
+                <input asp-for="Email" disabled class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group-user">
+                <input asp-for="RoleType" disabled class="form-control" />
+                <span asp-validation-for="RoleType" class="text-danger"></span>
+            </div>
+            <div class="button-holder">
+                <input type="hidden" id="RecaptchaValue" asp-for="RecaptchaValue" />
+                <button type="submit"
+                        asp-action="DeleteUser"
+                        class="btn btn-pharus text-white btn-confirm-delete">
+                    @SharedLocalizer.GetHtmlString("Delete User")
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="Scripts/_CreateEditScriptsPartial">
+}
